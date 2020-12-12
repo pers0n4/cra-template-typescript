@@ -1,0 +1,26 @@
+{
+  "name": "@pers0n4/cra-template-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript template for Create React App",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/pers0n4/cra-template-typescrit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pers0n4/cra-template-typescript.git"
+  },
+  "author": {
+    "name": "Dong-Young Kim",
+    "email": "31337.persona@gmail.com",
+    "url": "https://pers0n4.io"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
