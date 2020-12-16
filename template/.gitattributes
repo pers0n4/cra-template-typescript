@@ -14,8 +14,14 @@
 
 *.md                text
 *.txt               text
-README              text
+AUTHORS             text
+CHANGELOG           text
+CHANGES             text
+CONTRIBUTING        text
+COPYING             text
+COPYRIGHT           text
 LICENSE             text
+*README*            text
 
 .editorconfig       text
 .env                text
