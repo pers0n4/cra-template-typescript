@@ -12,6 +12,20 @@
 *.ts                text
 *.tsx               text
 
+*.sh                text eol=lf
+*.bash              text eol=lf
+*.bat               text eol=crlf
+*.cmd               text eol=crlf
+
+*.png               binary
+*.jpg               binary
+*.jpeg              binary
+*.ico               binary
+*.svg               text
+
+*.lock              text -diff
+package-lock.json   text -diff
+
 *.md                text
 *.txt               text
 AUTHORS             text
@@ -25,25 +39,13 @@ LICENSE             text
 
 .editorconfig       text
 .env                text
+.eslintcache        text
 .gitattributes      text
 .gitconfig          text
 
-*.lock              text -diff
-package-lock.json   text -diff
-
-*.sh                text eol=lf
-*.bash              text eol=lf
-*.bat               text eol=crlf
-*.cmd               text eol=crlf
-
-*.png               binary
-*.jpg               binary
-*.jpeg              binary
-*.ico               binary
-*.svg               text
-
-*.*rc               text
-*.*ignore           text
+.*rc                text
+.*rc.*              text
+.*ignore            text
 
 .gitattributes      export-ignore
 .gitignore          export-ignore
