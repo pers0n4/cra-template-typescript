@@ -10,9 +10,9 @@
 [![Prettier](https://img.shields.io/badge/-Prettier-f7b93e?style=flat-square&logo=prettier&logoColor=000)](https://prettier.io/)
 
 ```shell
-npx create-react-app app --template @pers0n4/cra-template-typescript
+npx create-react-app react-app --template @pers0n4/cra-template-typescript
 
 # or
 
-yarn create react-app app --template @pers0n4/cra-template-typescript
+yarn create react-app react-app --template @pers0n4/cra-template-typescript
 ```
