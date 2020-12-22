@@ -1,9 +1,5 @@
-import {
-  SigninActionTypes,
-  SIGNIN,
-  SIGNIN_SUCCESS,
-  SIGNIN_FAILURE,
-} from "./types";
+import type { SigninActionTypes } from "./types";
+import { SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE } from "./types";
 
 const signinRequest = (): SigninActionTypes => {
   return {

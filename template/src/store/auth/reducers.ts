@@ -1,10 +1,5 @@
-import {
-  AuthState,
-  SigninActionTypes,
-  SIGNIN,
-  SIGNIN_SUCCESS,
-  SIGNIN_FAILURE,
-} from "./types";
+import type { AuthState, SigninActionTypes } from "./types";
+import { SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE } from "./types";
 
 export const initialAuthState: AuthState = {
   authenticated: false,

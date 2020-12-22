@@ -1,10 +1,6 @@
-import React from "react";
-import {
-  AuthState,
-  SigninActionTypes,
-  initialAuthState,
-  authReducer,
-} from "store/auth";
+import * as React from "react";
+import type { AuthState, SigninActionTypes } from "store/auth";
+import { authReducer, initialAuthState } from "store/auth";
 
 interface IAuthContext {
   state: AuthState;
