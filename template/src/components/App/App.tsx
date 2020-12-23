@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Signin } from "components/Auth";
+import Signin from "components/Auth";
 
 const App: React.FC = () => {
   return (

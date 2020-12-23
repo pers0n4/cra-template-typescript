@@ -1,7 +1,5 @@
 import * as React from "react";
-import { ChangeEvent } from "react";
-import { useAuthContext } from "context/Auth";
-import { signin } from "store/auth";
+import { useAuth, signin } from "context/Auth";
 
 interface InputState {
   username: string;
@@ -16,7 +14,7 @@ const initialState: InputState = {
 const Signin: React.FC = () => {
   const [inputs, setInputs] = React.useState<InputState>(initialState);
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setInputs({
       ...inputs,
@@ -24,7 +22,7 @@ const Signin: React.FC = () => {
     });
   };
 
-  const { state, dispatch } = useAuthContext();
+  const { state, dispatch } = useAuth();
 
   return (
     <div>
@@ -36,7 +34,7 @@ const Signin: React.FC = () => {
       >
         Signin
       </button>
-      <p>{state.authenticated ? "true" : "false"}</p>
+      <span>{state.authenticated ? "true" : "false"}</span>
     </div>
   );
 };

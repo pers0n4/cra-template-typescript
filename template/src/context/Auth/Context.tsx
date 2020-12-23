@@ -1,10 +1,10 @@
 import * as React from "react";
-import type { AuthState, SigninActionTypes } from "store/auth";
-import { authReducer, initialAuthState } from "store/auth";
+import type { AuthState, AuthAction } from "./types";
+import { authReducer, initialAuthState } from "./reducers";
 
 interface IAuthContext {
   state: AuthState;
-  dispatch: React.Dispatch<SigninActionTypes>;
+  dispatch: React.Dispatch<AuthAction>;
 }
 
 const initialContext: IAuthContext = {
@@ -31,4 +31,4 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
   );
 };
 
-export const useAuthContext = (): IAuthContext => React.useContext(AuthContext);
+export const useAuth = (): IAuthContext => React.useContext(AuthContext);

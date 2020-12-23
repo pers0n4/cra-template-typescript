@@ -1,13 +1,13 @@
-import type { AuthState, SigninActionTypes } from "./types";
-import { SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE } from "./types";
+import type { AuthState, AuthAction } from "./types";
+import { SIGNIN, SIGNIN_FAILURE, SIGNIN_SUCCESS } from "./actions";
 
 export const initialAuthState: AuthState = {
   authenticated: false,
 };
 
 export const authReducer = (
-  state = initialAuthState,
-  action: SigninActionTypes
+  state: AuthState,
+  action: AuthAction
 ): AuthState => {
   switch (action.type) {
     case SIGNIN:
@@ -25,6 +25,6 @@ export const authReducer = (
         authenticated: action.payload.authenticated,
       };
     default:
-      return state;
+      throw new Error("AuthAction");
   }
 };
