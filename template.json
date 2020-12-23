@@ -3,7 +3,8 @@
     "scripts": {
       "format": "prettier --write src",
       "lint": "eslint src",
-      "release": "standard-version --sign"
+      "release": "standard-version --sign",
+      "update-react-imports": "npx react-codemod update-react-imports ."
     },
     "dependencies": {
       "@commitlint/cli": "^11.0.0",
