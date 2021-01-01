@@ -1,16 +1,14 @@
+import * as React from "react";
 import type { ThemeState, ThemeAction } from "./types";
-import { THEME_CHANGE } from "./actions";
+import { Action } from "./types";
 
-export const initialThemeState: ThemeState = {
+const initialState: ThemeState = {
   scheme: "light",
 };
 
-export const themeReducer = (
-  state: ThemeState,
-  action: ThemeAction
-): ThemeState => {
+const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
   switch (action.type) {
-    case THEME_CHANGE:
+    case Action.CHANGE_THEME:
       return {
         ...state,
         scheme: action.payload.scheme,
@@ -19,3 +17,8 @@ export const themeReducer = (
       throw new Error("ThemeAction");
   }
 };
+
+const useThemeReducer = (): [ThemeState, React.Dispatch<ThemeAction>] =>
+  React.useReducer(reducer, initialState);
+
+export default useThemeReducer;

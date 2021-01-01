@@ -1,9 +1,9 @@
 import type { ColorScheme, ThemeChangeAction } from "./types";
+import { Action } from "./types";
 
-export const THEME_CHANGE = "theme/CHANGE";
-
+// eslint-disable-next-line import/prefer-default-export
 export const changeTheme = (scheme: ColorScheme): ThemeChangeAction => ({
-  type: THEME_CHANGE,
+  type: Action.CHANGE_THEME,
   payload: {
     scheme,
   },

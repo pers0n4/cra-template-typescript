@@ -1,25 +1,23 @@
+import * as React from "react";
 import type { AuthState, AuthAction } from "./types";
-import { SIGNIN, SIGNIN_FAILURE, SIGNIN_SUCCESS } from "./actions";
+import { Action } from "./types";
 
-export const initialAuthState: AuthState = {
+const initialState: AuthState = {
   authenticated: false,
 };
 
-export const authReducer = (
-  state: AuthState,
-  action: AuthAction
-): AuthState => {
+const reducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
-    case SIGNIN:
+    case Action.SIGNIN:
       return {
         ...state,
       };
-    case SIGNIN_SUCCESS:
+    case Action.SIGNIN_SUCCESS:
       return {
         ...state,
         authenticated: action.payload.authenticated,
       };
-    case SIGNIN_FAILURE:
+    case Action.SIGNIN_FAILURE:
       return {
         ...state,
         authenticated: action.payload.authenticated,
@@ -28,3 +26,8 @@ export const authReducer = (
       throw new Error("AuthAction");
   }
 };
+
+const useAuthReducer = (): [AuthState, React.Dispatch<AuthAction>] =>
+  React.useReducer(reducer, initialState);
+
+export default useAuthReducer;

@@ -1,10 +1,4 @@
-import { THEME_CHANGE } from "./actions";
-
 export type ColorScheme = "light" | "dark";
-
-export interface ThemeState {
-  scheme: ColorScheme;
-}
 
 export interface Theme {
   colorScheme: ColorScheme;
@@ -15,9 +9,16 @@ export interface Theme {
     text: string;
   };
 }
+export interface ThemeState {
+  scheme: ColorScheme;
+}
+
+export enum Action {
+  CHANGE_THEME = "theme/CHANGE",
+}
 
 export interface ThemeChangeAction {
-  type: typeof THEME_CHANGE;
+  type: Action.CHANGE_THEME;
   payload: ThemeState;
 }
 
