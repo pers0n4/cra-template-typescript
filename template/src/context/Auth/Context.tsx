@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { AuthState, AuthAction } from "./types";
-import { authReducer, initialAuthState } from "./reducers";
+import useAuthReducer from "./reducers";
 
 interface IAuthContext {
   state: AuthState;
@@ -23,7 +23,8 @@ interface Props {
 }
 
 export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
-  const [state, dispatch] = React.useReducer(authReducer, initialAuthState);
+  const [state, dispatch] = useAuthReducer();
+
   return (
     <AuthContext.Provider value={{ state, dispatch }}>
       {children}

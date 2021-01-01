@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { ColorScheme, Theme, ThemeAction } from "./types";
 import { changeTheme } from "./actions";
-import { themeReducer, initialThemeState } from "./reducers";
+import useThemeReducer from "./reducers";
 
 export const ThemeContext = React.createContext<Theme | null>(null);
 export const DispatchContext = React.createContext<React.Dispatch<ThemeAction>>(
@@ -15,10 +15,7 @@ interface Props {
 }
 
 export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
-  const [themeOptions, dispatch] = React.useReducer(
-    themeReducer,
-    initialThemeState
-  );
+  const [themeOptions, dispatch] = useThemeReducer();
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
@@ -28,7 +25,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
         dispatch(changeTheme("light"));
       }
     }
-  }, []);
+  }, [dispatch]);
 
   const { scheme } = themeOptions;
 
