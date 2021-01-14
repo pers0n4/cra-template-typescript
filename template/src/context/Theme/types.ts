@@ -1,4 +1,4 @@
-export type ColorScheme = "light" | "dark";
+export type ColorScheme = 'light' | 'dark';
 
 export interface Theme {
   colorScheme: ColorScheme;
@@ -14,7 +14,7 @@ export interface ThemeState {
 }
 
 export enum Action {
-  CHANGE_THEME = "theme/CHANGE",
+  CHANGE_THEME = 'theme/CHANGE',
 }
 
 export interface ThemeChangeAction {

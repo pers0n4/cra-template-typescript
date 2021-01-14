@@ -1,6 +1,6 @@
-import * as React from "react";
-import type { AuthState, AuthAction } from "./types";
-import { Action } from "./types";
+import * as React from 'react';
+import type { AuthState, AuthAction } from './types';
+import { Action } from './types';
 
 const initialState: AuthState = {
   authenticated: false,
@@ -23,7 +23,7 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
         authenticated: action.payload.authenticated,
       };
     default:
-      throw new Error("AuthAction");
+      throw new Error('AuthAction');
   }
 };
 

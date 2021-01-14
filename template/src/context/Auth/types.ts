@@ -7,9 +7,9 @@ export interface AuthState {
 }
 
 export enum Action {
-  SIGNIN = "auth/SIGNIN",
-  SIGNIN_SUCCESS = "auth/SIGNIN_SUCCESS",
-  SIGNIN_FAILURE = "auth/SIGNIN_FAILURE",
+  SIGNIN = 'auth/SIGNIN',
+  SIGNIN_SUCCESS = 'auth/SIGNIN_SUCCESS',
+  SIGNIN_FAILURE = 'auth/SIGNIN_FAILURE',
 }
 
 export interface SigninRequestAction {

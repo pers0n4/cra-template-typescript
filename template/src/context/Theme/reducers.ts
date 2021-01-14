@@ -1,9 +1,9 @@
-import * as React from "react";
-import type { ThemeState, ThemeAction } from "./types";
-import { Action } from "./types";
+import * as React from 'react';
+import type { ThemeState, ThemeAction } from './types';
+import { Action } from './types';
 
 const initialState: ThemeState = {
-  scheme: "light",
+  scheme: 'light',
 };
 
 const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
@@ -14,7 +14,7 @@ const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
         scheme: action.payload.scheme,
       };
     default:
-      throw new Error("ThemeAction");
+      throw new Error('ThemeAction');
   }
 };
 
