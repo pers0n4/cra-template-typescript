@@ -6,7 +6,7 @@ const initialState: ThemeState = {
   scheme: 'light',
 };
 
-const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
+const reducer: React.Reducer<ThemeState, ThemeAction> = (state, action) => {
   switch (action.type) {
     case Action.CHANGE_THEME:
       return {

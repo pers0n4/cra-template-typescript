@@ -9,9 +9,6 @@ export interface Theme {
     text: string;
   };
 }
-export interface ThemeState {
-  scheme: ColorScheme;
-}
 
 export enum Action {
   CHANGE_THEME = 'theme/CHANGE',
@@ -22,4 +19,7 @@ export interface ThemeChangeAction {
   payload: ThemeState;
 }
 
+export type ThemeState = {
+  scheme: ColorScheme;
+};
 export type ThemeAction = ThemeChangeAction;

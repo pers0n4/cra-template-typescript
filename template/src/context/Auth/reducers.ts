@@ -6,7 +6,7 @@ const initialState: AuthState = {
   authenticated: false,
 };
 
-const reducer = (state: AuthState, action: AuthAction): AuthState => {
+const reducer: React.Reducer<AuthState, AuthAction> = (state, action) => {
   switch (action.type) {
     case Action.SIGNIN:
       return {
