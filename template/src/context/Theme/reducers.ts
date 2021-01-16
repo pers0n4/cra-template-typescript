@@ -1,12 +1,12 @@
-import * as React from "react";
-import type { ThemeState, ThemeAction } from "./types";
-import { Action } from "./types";
+import * as React from 'react';
+import type { ThemeState, ThemeAction } from './types';
+import { Action } from './types';
 
 const initialState: ThemeState = {
-  scheme: "light",
+  scheme: 'light',
 };
 
-const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
+const reducer: React.Reducer<ThemeState, ThemeAction> = (state, action) => {
   switch (action.type) {
     case Action.CHANGE_THEME:
       return {
@@ -14,7 +14,7 @@ const reducer = (state: ThemeState, action: ThemeAction): ThemeState => {
         scheme: action.payload.scheme,
       };
     default:
-      throw new Error("ThemeAction");
+      throw new Error('ThemeAction');
   }
 };
 

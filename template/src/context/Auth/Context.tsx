@@ -1,6 +1,6 @@
-import * as React from "react";
-import type { AuthState, AuthAction } from "./types";
-import useAuthReducer from "./reducers";
+import * as React from 'react';
+import type { AuthState, AuthAction } from './types';
+import useAuthReducer from './reducers';
 
 interface IAuthContext {
   state: AuthState;
@@ -12,7 +12,7 @@ const initialContext: IAuthContext = {
     authenticated: false,
   },
   dispatch: () => {
-    throw new Error("AuthContext");
+    throw new Error('AuthContext');
   },
 };
 

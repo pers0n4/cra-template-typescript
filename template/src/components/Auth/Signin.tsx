@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useAuth, signin } from "context/Auth";
+import * as React from 'react';
+import { useAuth, signin } from 'context/Auth';
 
 interface InputState {
   username: string;
@@ -7,8 +7,8 @@ interface InputState {
 }
 
 const initialState: InputState = {
-  username: "",
-  password: "",
+  username: '',
+  password: '',
 };
 
 const Signin: React.FC = () => {
@@ -34,7 +34,7 @@ const Signin: React.FC = () => {
       >
         Signin
       </button>
-      <span>{state.authenticated ? "true" : "false"}</span>
+      <span>{state.authenticated ? 'true' : 'false'}</span>
     </div>
   );
 };

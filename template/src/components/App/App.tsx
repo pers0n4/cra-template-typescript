@@ -1,20 +1,20 @@
-import * as React from "react";
-import Signin from "components/Auth";
-import { useTheme, useChangeTheme } from "context/Theme";
+import * as React from 'react';
+import Signin from 'components/Auth';
+import { useTheme, useChangeTheme } from 'context/Theme';
 
 const App: React.FC = () => {
   const theme = useTheme();
   const changeTheme = useChangeTheme();
 
   const handlechangeTheme = () => {
-    changeTheme(theme.colorScheme === "light" ? "dark" : "light");
+    changeTheme(theme.colorScheme === 'light' ? 'dark' : 'light');
   };
 
   return (
     <div
       className="App"
       style={{
-        padding: "1rem",
+        padding: '1rem',
         backgroundColor: theme.palette.background,
         color: theme.palette.text,
       }}

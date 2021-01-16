@@ -3,8 +3,8 @@ import type {
   SigninRequestAction,
   SigninFailureAction,
   SigninSuccessAction,
-} from "./types";
-import { Action } from "./types";
+} from './types';
+import { Action } from './types';
 
 const signinRequest = (): SigninRequestAction => {
   return {
