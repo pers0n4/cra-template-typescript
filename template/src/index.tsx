@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from './context/Theme';
-import { AuthProvider } from './context/Auth';
 import App from './components/App';
+import { AuthProvider } from './context/Auth';
+import { ThemeProvider } from './context/Theme';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

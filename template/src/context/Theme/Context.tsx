@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { ColorScheme, Theme, ThemeAction } from './types';
 import { changeTheme } from './actions';
 import useThemeReducer from './reducers';
+import type { ColorScheme, Theme, ThemeAction } from './types';
 
 export const ThemeContext = React.createContext<Theme | null>(null);
 export const DispatchContext = React.createContext<React.Dispatch<ThemeAction>>(

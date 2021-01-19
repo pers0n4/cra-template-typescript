@@ -2,12 +2,19 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
     "sourceType": "module",
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true
     },
     "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -24,16 +31,20 @@
     "prettier/@typescript-eslint"
   ],
   "plugins": [
-    "react",
-    "react-hooks",
-    "jsx-a11y",
+    "@typescript-eslint",
     "import",
     "jest",
-    "testing-library",
+    "jsx-a11y",
     "prettier",
-    "@typescript-eslint"
+    "react",
+    "react-hooks",
+    "testing-library"
   ],
   "rules": {
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": [
       "warn",
       "ignorePackages",
@@ -44,23 +55,34 @@
         "tsx": "never"
       }
     ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [],
+        "newlines-between": "ignore",
+        "alphabetize": { "order": "asc", "caseInsensitive": false }
+      }
+    ],
     "react/jsx-filename-extension": [
       "error",
       {
         "extensions": [".jsx", ".tsx"]
       }
-    ],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "commonjs": true,
-    "es6": true,
-    "jest": true
+    ]
   },
   "settings": {
     "import/parsers": {
@@ -68,12 +90,10 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
-        "moduleDirectory": ["node_modules", "src"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
       }
     },
-    "import/extensions": [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
-    "import/external-module-folders": ["node_modules", "node_modules/@types"],
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
     "react": {
       "pragma": "React",
       "version": "detect"

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { AuthState, AuthAction } from './types';
 import useAuthReducer from './reducers';
+import type { AuthState, AuthAction } from './types';
 
 interface IAuthContext {
   state: AuthState;
