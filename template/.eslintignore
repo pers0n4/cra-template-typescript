@@ -1,6 +1,5 @@
-build/
-public/
 node_modules/
-package.json
-package-lock.json
-yarn.lock
+
+build/
+
+reportWebVitals.ts

@@ -1,52 +1,36 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 2018,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "project": "./tsconfig.json"
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "commonjs": true,
-    "es6": true,
-    "jest": true
+    "ecmaVersion": "latest"
   },
   "extends": [
     "eslint:recommended",
-    "react-app",
-    "react-app/jest",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
     "airbnb/hooks",
     "airbnb/whitespace",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:prettier/recommended",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "jest",
-    "jsx-a11y",
-    "prettier",
-    "react",
-    "react-hooks",
-    "testing-library"
-  ],
+  "plugins": ["import", "jsx-a11y", "react", "react-hooks"],
   "rules": {
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-restricted-exports": ["off"],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+
     "import/extensions": [
-      "warn",
+      "error",
       "ignorePackages",
       {
         "js": "never",
@@ -59,11 +43,15 @@
       "error",
       {
         "groups": [
-          ["builtin", "external"],
+          "builtin",
+          "external",
           "internal",
+          "unknown",
           "parent",
           "sibling",
-          "index"
+          "index",
+          "object",
+          "type"
         ],
         "pathGroups": [
           {
@@ -72,9 +60,17 @@
             "position": "before"
           }
         ],
-        "pathGroupsExcludedImportTypes": [],
-        "newlines-between": "ignore",
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
         "alphabetize": { "order": "asc", "caseInsensitive": false }
+      }
+    ],
+
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
       }
     ],
     "react/jsx-filename-extension": [
@@ -82,21 +78,58 @@
       {
         "extensions": [".jsx", ".tsx"]
       }
+    ],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "shorthandLast": false,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
     ]
   },
   "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
-    },
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+    "import/extensions": [".js", ".jsx"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": "latest",
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/typescript",
+        "airbnb-typescript",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          { "prefer": "type-imports" }
+        ]
+      },
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          }
+        }
       }
-    },
-    "import/extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
-    "react": {
-      "pragma": "React",
-      "version": "detect"
     }
-  }
+  ]
 }
