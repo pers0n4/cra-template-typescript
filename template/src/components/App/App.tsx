@@ -13,18 +13,18 @@ export default function App(): JSX.Element {
 
   return (
     <div
-      className="App"
+      className="app"
       style={{
         backgroundColor: theme.colors.background,
         color: theme.colors.text,
       }}
     >
-      <header className="App-container">
-        <img alt="logo" className="App-logo" src={logo} />
+      <header className="container">
+        <img alt="logo" className="app__logo" src={logo} />
         <h1 style={{ color: theme.colors.primary }}>Hello, world!</h1>
         <h2 style={{ color: theme.colors.secondary }}>React TypeScript</h2>
       </header>
-      <main className="App-container">
+      <main className="container">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

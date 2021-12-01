@@ -2,24 +2,23 @@ body {
   margin: 0;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.App-container {
+.container {
   width: 960px;
   margin: 0 auto;
 }
 
-.App-logo {
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.app__logo {
   height: 20vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .app__logo {
     animation: spin infinite 20s linear;
   }
 }
@@ -28,6 +27,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
