@@ -1,25 +1,38 @@
-export type ColorScheme = 'light' | 'dark';
+export type ColorMode = "dark" | "light";
+export type ColorPalette = {
+  primary: string;
+  secondary: string;
+  background: string;
+  text: string;
+};
 
-export interface Theme {
-  colorScheme: ColorScheme;
-  palette: {
-    primary: string;
-    secondary: string;
-    background: string;
-    text: string;
-  };
-}
-
-export enum Action {
-  CHANGE_THEME = 'theme/CHANGE',
-}
-
-export interface ThemeChangeAction {
-  type: Action.CHANGE_THEME;
-  payload: ThemeState;
-}
+export type ThemeOption = {
+  colorMode: ColorMode;
+  colorPalette: ColorPalette;
+};
 
 export type ThemeState = {
-  scheme: ColorScheme;
+  colors: {
+    mode: ColorMode;
+  } & ColorPalette;
 };
-export type ThemeAction = ThemeChangeAction;
+
+const ThemeActions = {
+  CHANGE_COLOR_MODE: "CHANGE_COLOR_MODE",
+  CHANGE_COLOR_PALETTE: "CHANGE_COLOR_PALETTE",
+} as const;
+export type ThemeActionType = typeof ThemeActions[keyof typeof ThemeActions];
+
+export interface ThemeActionChangeColorMode {
+  type: typeof ThemeActions.CHANGE_COLOR_MODE;
+  payload: { colorMode: ColorMode };
+}
+
+export interface ThemeActionChangeColorPalette {
+  type: typeof ThemeActions.CHANGE_COLOR_PALETTE;
+  payload: ColorPalette;
+}
+
+export type ThemeAction =
+  | ThemeActionChangeColorMode
+  | ThemeActionChangeColorPalette;
