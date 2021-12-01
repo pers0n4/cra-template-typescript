@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import "./App.css";
-import logo from "../../assets/logo.svg";
-import { useChangeColorMode, useTheme } from "../../context/Theme";
+import logo from "@/assets/logo.svg";
+import { useChangeColorMode, useTheme } from "@/context/Theme";
 
 export default function App(): JSX.Element {
   const theme = useTheme();

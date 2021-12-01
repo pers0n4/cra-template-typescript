@@ -1,12 +1,17 @@
 {
   "package": {
     "scripts": {
+      "start": "craco start",
+      "build": "craco build",
+      "test": "craco test",
+      "eject": "react-scripts eject",
       "format": "prettier --write src",
       "lint": "eslint src",
       "lint:css": "stylelint 'src/**/*.css'",
       "release": "standard-version --sign"
     },
     "dependencies": {
+      "@craco/craco": "^6.4.2",
       "@testing-library/jest-dom": "^5.11.9",
       "@testing-library/react": "^12.1.2",
       "@testing-library/user-event": "^13.5.0",
@@ -25,6 +30,7 @@
       "@typescript-eslint/eslint-plugin": "^5.5.0",
       "@typescript-eslint/parser": "^5.5.0",
       "commitizen": "^4.2.3",
+      "craco-alias": "^3.0.1",
       "cz-conventional-changelog": "^3.3.0",
       "eslint": "^7.32.0",
       "eslint-config-airbnb": "^19.0.1",
