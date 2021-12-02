@@ -8,7 +8,7 @@
       "format": "prettier src",
       "lint": "eslint src",
       "lint:css": "stylelint 'src/**/*.css'",
-      "release": "standard-version --sign",
+      "release": "standard-version --sign --commit-all --releaseCommitMessageFormat 'release: cut the v{{currentTag}} release'",
       "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
