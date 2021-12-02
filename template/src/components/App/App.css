@@ -12,6 +12,7 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
 .app__logo {
   height: 20vmin;
   pointer-events: none;
