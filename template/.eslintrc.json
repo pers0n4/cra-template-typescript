@@ -1,9 +1,13 @@
 {
   "root": true,
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.eslint.json"
   },
   "extends": [
     "eslint:recommended",
@@ -13,10 +17,20 @@
     "airbnb",
     "airbnb/hooks",
     "airbnb/whitespace",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:import/typescript",
+    "airbnb-typescript",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["import", "jsx-a11y", "react", "react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks"
+  ],
   "rules": {
     "no-restricted-exports": ["off"],
     "sort-imports": [
@@ -89,47 +103,21 @@
         "noSortAlphabetically": false,
         "reservedFirst": true
       }
+    ],
+
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports" }
     ]
   },
   "settings": {
-    "import/extensions": [".js", ".jsx"]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.ts?(x)"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "sourceType": "module",
-        "ecmaVersion": "latest",
-        "ecmaFeatures": {
-          "jsx": true
-        },
-        "project": "./tsconfig.json"
-      },
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:import/typescript",
-        "airbnb-typescript",
-        "plugin:prettier/recommended"
-      ],
-      "plugins": ["@typescript-eslint"],
-      "rules": {
-        "@typescript-eslint/consistent-type-imports": [
-          "error",
-          { "prefer": "type-imports" }
-        ]
-      },
-      "settings": {
-        "import/parsers": {
-          "@typescript-eslint/parser": [".ts", ".tsx"]
-        },
-        "import/resolver": {
-          "typescript": {
-            "alwaysTryTypes": true
-          }
-        }
+    "import/parsers": {
+      "@typescript-eslint/parser": [".js", ".jsx", ".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
-  ]
+  }
 }
