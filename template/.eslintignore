@@ -1,7 +1,5 @@
-build/
-public/
 node_modules/
-package.json
-package-lock.json
-yarn.lock
-*rc.js
+
+build/
+
+reportWebVitals.ts

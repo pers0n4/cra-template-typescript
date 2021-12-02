@@ -1,64 +1,56 @@
 {
   "package": {
     "scripts": {
-      "format": "prettier --write src",
+      "start": "craco start",
+      "build": "craco build",
+      "test": "craco test",
+      "eject": "react-scripts eject",
+      "format": "prettier src",
       "lint": "eslint src",
-      "release": "standard-version --sign",
-      "update-react-imports": "npx react-codemod update-react-imports ."
+      "lint:css": "stylelint 'src/**/*.css'",
+      "release": "standard-version --sign --commit-all --releaseCommitMessageFormat 'release: cut the v{{currentTag}} release'",
+      "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-      "@commitlint/cli": "^11.0.0",
-      "@commitlint/config-conventional": "^11.0.0",
+      "@craco/craco": "^6.4.2",
       "@testing-library/jest-dom": "^5.11.9",
-      "@testing-library/react": "^11.2.3",
-      "@testing-library/user-event": "^12.6.0",
-      "@types/jest": "^26.0.20",
-      "@types/node": "^14.14.21",
+      "@testing-library/react": "^12.1.2",
+      "@testing-library/user-event": "^13.5.0",
+      "@types/jest": "^27.0.3",
+      "@types/node": "^16.11.11",
       "@types/react": "^17.0.0",
       "@types/react-dom": "^17.0.0",
-      "@typescript-eslint/eslint-plugin": "^4.13.0",
-      "@typescript-eslint/parser": "^4.13.0",
-      "babel-eslint": "^10.1.0",
-      "commitizen": "^4.2.3",
-      "cz-conventional-changelog": "^3.3.0",
-      "eslint": "^7.18.0",
-      "eslint-config-airbnb": "^18.2.1",
-      "eslint-config-prettier": "^7.1.0",
-      "eslint-config-react-app": "^6.0.0",
-      "eslint-plugin-flowtype": "^5.2.0",
-      "eslint-plugin-import": "^2.22.1",
-      "eslint-plugin-jest": "^24.1.3",
-      "eslint-plugin-jsx-a11y": "^6.4.1",
-      "eslint-plugin-prettier": "^3.3.1",
-      "eslint-plugin-react": "^7.22.0",
-      "eslint-plugin-react-hooks": "^4.2.0",
-      "eslint-plugin-testing-library": "^3.10.1",
-      "husky": "^4.3.8",
-      "lint-staged": "^10.5.3",
-      "prettier": "^2.2.1",
-      "react": "^17.0.1",
-      "react-dom": "^17.0.1",
-      "react-scripts": "4.0.1",
-      "standard-version": "^9.1.0",
       "typescript": "^4.1.3",
-      "web-vitals": "^1.1.0"
+      "web-vitals": "^2.1.2"
     },
-    "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged",
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-      }
-    },
-    "lint-staged": {
-      "src/**/*.{js,jsx,ts,tsx,md,html,json}": ["eslint", "prettier --check"]
-    },
-    "commitlint": {
-      "extends": ["@commitlint/config-conventional"]
-    },
-    "config": {
-      "commitizen": {
-        "path": "cz-conventional-changelog"
-      }
+    "devDependencies": {
+      "@commitlint/cli": "^15.0.0",
+      "@commitlint/config-conventional": "^15.0.0",
+      "@typescript-eslint/eslint-plugin": "^5.5.0",
+      "@typescript-eslint/parser": "^5.5.0",
+      "commitizen": "^4.2.3",
+      "craco-alias": "^3.0.1",
+      "cz-conventional-changelog": "^3.3.0",
+      "eslint": "^7.32.0",
+      "eslint-config-airbnb": "^19.0.1",
+      "eslint-config-airbnb-typescript": "^16.0.0",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-import-resolver-typescript": "^2.5.0",
+      "eslint-plugin-import": "^2.25.3",
+      "eslint-plugin-jsx-a11y": "^6.4.1",
+      "eslint-plugin-prettier": "^4.0.0",
+      "eslint-plugin-react": "^7.22.0",
+      "eslint-plugin-react-hooks": "^4.3.0",
+      "husky": "^7.0.4",
+      "lint-staged": "^12.1.2",
+      "prettier": "^2.2.1",
+      "sort-package-json": "^1.53.1",
+      "standard-version": "^9.1.0",
+      "stylelint": "^14.1.0",
+      "stylelint-config-prettier": "^9.0.3",
+      "stylelint-config-recess-order": "^3.0.0",
+      "stylelint-config-standard": "^24.0.0",
+      "stylelint-order": "^5.0.0"
     }
   }
 }
