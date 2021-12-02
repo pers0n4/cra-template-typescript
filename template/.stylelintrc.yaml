@@ -1,0 +1,25 @@
+extends:
+  - stylelint-config-standard
+  - stylelint-config-recess-order
+  - stylelint-config-prettier
+plugins:
+  - stylelint-order
+rules:
+  selector-class-pattern:
+    # - "^[a-z][a-zA-Z0-9]+$" # camelCase
+    # - "^[A-Z][a-zA-Z0-9]+$" # PascalCase
+    # - "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$" # kebab-case
+    # - "^([a-z][a-z0-9]*)(_[a-z0-9]+)*$" # snake_case
+    - "^([a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*)((?:(?:--|__)[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*)*)$"
+    - message: Expected class selector to be BEM naming
+overrides:
+  - files:
+      - js
+      - jsx
+      - ts
+      - tsx
+    processors:
+      - stylelint-processor-styled-components
+    extends:
+      - stylelint-config-styled-components
+      - stylelint-config-prettier
